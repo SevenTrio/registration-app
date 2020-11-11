@@ -1,0 +1,96 @@
+@import "../../scss/config";
+
+.Registration {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 10px;
+  background-color: #fff;
+
+  &-Heading {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  &-Form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &-TextField {
+    &.MuiFormControl-root {
+      width: 100%;
+      margin-bottom: 24px;
+    }
+  }
+
+  &-Switch {
+    &.MuiFormControlLabel-root {
+      display: flex;
+      margin: 0 0 24px 0;
+
+      .MuiFormControlLabel-label {
+        font-size: 16px;
+        line-height: 16px;
+        color: #808080;
+      }
+
+      .MuiSwitch-root {
+        margin-left: -8px;
+
+        .MuiButtonBase-root {
+          &.Mui-checked {
+            color: $violet;
+
+            +.MuiSwitch-track {
+              background-color: $violet;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-Button {
+    &.MuiButton-root {
+      position: relative;
+      border-radius: 5px;
+      padding: 12px 0;
+      font-weight: bold;
+      font-size: 14px;
+      letter-spacing: 1px;
+      line-height: 16px;
+      color: #fff;
+      background: linear-gradient(90deg, #9374EB 0%, #E69FD6 100%);
+
+      .MuiButton-label {
+        z-index: 1;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        background: linear-gradient(90deg, #E69FD6 0%, #9374EB 100%);
+        opacity: 0;
+        transition: 0.7s;
+      }
+
+      &:hover:before {
+        opacity: 1;
+      }
+    }
+  }
+}

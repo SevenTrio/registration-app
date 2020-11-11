@@ -1,0 +1,11 @@
+.App {
+  &-ContentWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1280px;
+    padding: 40px 32px;
+    margin: 0 auto;
+  }
+}

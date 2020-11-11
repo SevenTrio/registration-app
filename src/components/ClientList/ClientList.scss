@@ -1,0 +1,120 @@
+@import "../../scss/config";
+
+.ClientList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 960px;
+  padding-top: 32px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  //overflow: auto;
+
+  &-Heading {
+    align-self: center;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  &-TableWrapper {
+    overflow: auto;
+  }
+
+  &-Table {
+    width: 100%;
+    min-width: 500px;
+  }
+
+  &-TableRow {
+    border-bottom: 1px solid $gray1;
+
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    &:hover:not(&_HeaderRow) {
+      transition: background-color 0.1s linear;
+      background-color: rgba($pastel, 0.4);
+    }
+  }
+
+  &-TableHeader {
+    padding: 8px 32px 8px 0;
+    text-align: left;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: $gray2;
+    border-bottom: 1px solid $gray2;
+
+    &:first-child {
+      width: 30%;
+      padding-left: 32px;
+    }
+    &:nth-child(2){
+      width: 20%;
+    }
+    &:nth-child(3){
+      width: 30%;
+    }
+    &:nth-child(4){
+      width: 20%;
+    }
+  }
+
+  &-TableData {
+    padding: 18px 32px 18px 0;
+    font-size: 14px;
+    line-height: 20px;
+    &:first-child {
+      padding-left: 32px;
+    }
+  }
+
+  &-CheckIcon {
+    &.MuiSvgIcon-root {
+      padding: 2px;
+      margin-bottom: -5px;
+      border: 1px solid $gray1;
+      border-radius: 50%;
+      line-height: 26px;
+      font-size: 20px;
+      color: #00ff00;
+      align-self: flex-end;
+      justify-self: flex-end;
+    }
+  }
+  &-Empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-EmptyImage {
+    height: auto;
+    width: 100%;
+    margin-bottom: 24px;
+    max-width: 300px;
+  }
+
+  &-EmptyMessage {
+    margin-bottom: 16px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: #2B2B2B;
+  }
+
+  &-EmptyLink {
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 16px;
+    color: $violet;
+    text-decoration: underline;
+  }
+}
+
