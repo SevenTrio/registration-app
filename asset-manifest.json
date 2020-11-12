@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/registration-app/static/css/main.2af467f8.chunk.css",
-    "main.js": "/registration-app/static/js/main.f89a6b63.chunk.js",
-    "main.js.map": "/registration-app/static/js/main.f89a6b63.chunk.js.map",
+    "main.js": "/registration-app/static/js/main.f96a5ea3.chunk.js",
+    "main.js.map": "/registration-app/static/js/main.f96a5ea3.chunk.js.map",
     "runtime-main.js": "/registration-app/static/js/runtime-main.202be4a0.js",
     "runtime-main.js.map": "/registration-app/static/js/runtime-main.202be4a0.js.map",
     "static/js/2.67300c12.chunk.js": "/registration-app/static/js/2.67300c12.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.202be4a0.js",
     "static/js/2.67300c12.chunk.js",
     "static/css/main.2af467f8.chunk.css",
-    "static/js/main.f89a6b63.chunk.js"
+    "static/js/main.f96a5ea3.chunk.js"
   ]
 }
