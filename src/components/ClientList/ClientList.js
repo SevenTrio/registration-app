@@ -2,6 +2,7 @@ import React from "react";
 import CheckIcon from '@material-ui/icons/CheckRounded';
 import {NavLink} from "react-router-dom";
 
+import emptyImage from '../../images/empty.png'
 import './ClientList.scss'
 
 const dateOptions = {
@@ -49,7 +50,7 @@ function ClientList({ users }) {
                 </div>
             ) : (
                 <div className="ClientList-Empty">
-                    <img src="/images/empty.png" alt="" className="ClientList-EmptyImage"/>
+                    <img src={emptyImage} alt="" className="ClientList-EmptyImage"/>
                     <p className="ClientList-EmptyMessage">Oops, the user list is empty!</p>
                     <NavLink to="/add-user" className="ClientList-EmptyLink">Click here to go to the registration page</NavLink>
                 </div>

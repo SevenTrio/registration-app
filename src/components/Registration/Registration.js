@@ -101,17 +101,17 @@ class Registration extends Component {
         switch(name) {
             case 'userName':
                 isValid = value.match(/^[A-Za-z ]*$/i);
-                errorMessage = "The user name can only contain letters and spaces";
+                if (!isValid) errorMessage = "The user name can only contain letters and spaces";
                 break;
 
             case 'userGender':
                 isValid = ["Male", "Female", "Non-binary"].includes(value);
-                errorMessage = `${value} it's not valid gender`;
+                if (!isValid) errorMessage = `${value} it's not valid gender`;
                 break;
 
             case 'userCreditCard':
                 isValid = validateCardNumber(value.replace(/\s+/g, ''));
-                errorMessage = "This card is not valid";
+                if (!isValid) errorMessage = "This card is not valid";
                 break;
 
             default:
