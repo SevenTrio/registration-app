@@ -95,56 +95,33 @@ class Registration extends Component {
             }))
         }
 
+        let isValid;
+        let errorMessage = "";
+
         switch(name) {
             case 'userName':
-                let userNameValid = value.match(/^[A-Za-z ]*$/i);
-                if (!userNameValid) {
-                     this.setState((prevState) => ({
-                        errors: {...prevState.errors, [name]: "The user name can only contain letters and spaces"},
-                        validated: {...prevState.validated, [name]: false}
-                    }))
-                } else {
-                     this.setState((prevState) => ({
-                        errors: {...prevState.errors, [name]: ""},
-                        validated: {...prevState.validated, [name]: true}
-                    }))
-                }
+                isValid = value.match(/^[A-Za-z ]*$/i);
+                errorMessage = "The user name can only contain letters and spaces";
                 break;
 
             case 'userGender':
-                let userGenderValid = ["Male", "Female", "Non-binary"].includes(value);
-                if (!userGenderValid) {
-                    this.setState((prevState) => ({
-                        errors: {...prevState.errors, [name]: `${value} it's not valid gender`},
-                        validated: {...prevState.validated, [name]: false}
-                    }))
-                } else {
-                    this.setState((prevState) => ({
-                        errors: {...prevState.errors, [name]: ""},
-                        validated: {...prevState.validated, [name]: true}
-                    }))
-                }
+                isValid = ["Male", "Female", "Non-binary"].includes(value);
+                errorMessage = `${value} it's not valid gender`;
                 break;
 
             case 'userCreditCard':
-                let cardNumber = value.replace(/\s+/g, '');
-                let userCreditCardValid = validateCardNumber(cardNumber);
-                if (!userCreditCardValid) {
-                    this.setState((prevState) => ({
-                        errors: {...prevState.errors, [name]: "This card is not valid"},
-                        validated: {...prevState.validated, [name]: false}
-                    }))
-                } else {
-                    this.setState((prevState) => ({
-                        errors: {...prevState.errors, [name]: ""},
-                        validated: {...prevState.validated, [name]: true}
-                    }))
-                }
+                isValid = validateCardNumber(value.replace(/\s+/g, ''));
+                errorMessage = "This card is not valid";
                 break;
 
             default:
                 break;
         }
+
+        this.setState((prevState) => ({
+            validated: {...prevState.validated, [name]: isValid},
+            errors: {...prevState.errors, [name]: errorMessage},
+        }))
     }
 
     clearError = (e) => {

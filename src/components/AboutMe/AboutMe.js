@@ -1,8 +1,9 @@
 import React from "react";
+import './AboutMe.scss'
 
 function AboutMe() {
     return (
-        <h1>Will be soon...</h1>
+        <h1 className="AboutMe-Heading">Will be soon...</h1>
     );
 }
 
