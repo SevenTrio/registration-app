@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 
 import Header from "../Header/Header";
-import Navigation from "../Navigation/Navigation";
 import Registration from "../Registration/Registration"
 import ClientList from "../ClientList/ClientList"
 import AboutMe from "../AboutMe/AboutMe"

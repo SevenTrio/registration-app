@@ -10,6 +10,8 @@ import Switch from '@material-ui/core/Switch';
 import Button from '@material-ui/core/Button';
 import CardInput from '../CardInput/CardInput'
 import {Transition} from "react-transition-group";
+import Snackbar from '@material-ui/core/Snackbar';
+import Alert from '@material-ui/lab/Alert';
 
 import './Registration.scss';
 
@@ -54,19 +56,19 @@ const initState = {
         userName: false,
             userGender: false,
             userCreditCard: false,
-    }
+    },
 };
 
 class Registration extends Component {
-    state = initState;
+    state = {...initState, showSuccessMessage: false};
 
-    duration = 300;
+    inputTransitionDuration = 300;
 
-    defaultStyle = {
-        transition: `all ${this.duration}ms ease-in-out`
+    inputDefaultStyle = {
+        transition: `all ${this.inputTransitionDuration}ms ease-in-out`
     }
 
-    transitionStyles = {
+    inputTransitionStyles = {
         entering: { opacity: 0, height: 0, marginBottom: 0 },
         entered:  { opacity: 1, height: 56, marginBottom: 32 },
         exiting:  { opacity: 0, height: 0, marginBottom: 0 },
@@ -174,9 +176,19 @@ class Registration extends Component {
                 }),
                 () => {
                     this.props.addUser(this.state.user);
-                    this.setState(initState);
-                });
+                    this.setState((prevState) => ({...prevState, ...initState, showSuccessMessage: true}));
+                }
+            );
         }
+    };
+
+    handleMessageClose = (event, reason) => {
+        console.log(reason);
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        this.setState({showSuccessMessage: false});
     };
 
     render() {
@@ -250,7 +262,7 @@ class Registration extends Component {
                     />
                     <Transition
                         in={this.state.user.withLoyaltyProgram}
-                        timeout={this.duration}
+                        timeout={this.inputTransitionDuration}
                         mountOnEnter={true}
                         unmountOnExit={true}
                     >
@@ -263,8 +275,8 @@ class Registration extends Component {
                                 label="Coupon"
                                 variant="outlined"
                                 style={{
-                                    ...this.defaultStyle,
-                                    ...this.transitionStyles[state]
+                                    ...this.inputDefaultStyle,
+                                    ...this.inputTransitionStyles[state]
                                 }}
                             />
                         )}
@@ -278,6 +290,21 @@ class Registration extends Component {
                         Create user
                     </Button>
                 </form>
+
+                <Snackbar
+                    open={this.state.showSuccessMessage}
+                    onClose={this.handleMessageClose}
+                    message="I love snacks"
+                >
+                    <Alert
+                        onClose={this.handleMessageClose}
+                        severity="success"
+                        elevation={6}
+                        variant="filled"
+                    >
+                        User created successfully!
+                    </Alert>
+                </Snackbar>
             </div>
         );
     }
