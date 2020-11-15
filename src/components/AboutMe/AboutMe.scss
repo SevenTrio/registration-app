@@ -1,7 +1,129 @@
 .AboutMe {
-  &-Heading {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 720px;
+  padding: 32px;
+  border-radius: 10px;
+  background-color: #fff;
+
+  &-Name {
+    align-self: center;
+    margin-bottom: 8px;
     font-weight: 500;
     font-size: 24px;
     line-height: 28px;
+  }
+
+  &-Position {
+    text-align: center;
+    align-self: center;
+    font-size: 20px;
+    line-height: 24px;
+    color: #404040;
+  }
+
+  &-Heading {
+    margin: 16px 0;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 24px;
+    color: #9374EB;
+  }
+
+  &-ContactList {
+    margin-left: 20px;
+  }
+
+  &-ContactItem {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    margin-bottom: 4px;
+
+    &Value {
+      min-width: 220px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    @media screen and (max-width: 550px) {
+      flex-direction: column;
+      margin-bottom: 8px;
+      font-weight: 500;
+
+      &Value {
+        font-weight: normal;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-EducationContainer {
+    margin-left: 20px;
+  }
+
+  &-Specialty {
+    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &-University {
+    margin-bottom: 4px;
+  }
+
+  &-ExpirationDate {
+    font-style: italic;
+    font-size: 12px;
+    color: #616161;
+  }
+
+  &-SkillsList {
+    margin-left: 20px;
+    padding-left: 18px;
+    list-style-type: disc;
+  }
+
+  &-SkillsItem {
+    margin-bottom: 4px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-LanguagesList {
+    margin-left: 20px;
+  }
+
+  &-LanguagesItem {
+    display: flex;
+    margin-bottom: 4px;
+
+    &Value {
+      margin-left: 0.3em;
+    }
+
+    @media screen and (max-width: 550px) {
+      flex-direction: column;
+      margin-bottom: 8px;
+      font-weight: 500;
+
+      &Value {
+        font-weight: normal;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-AboutText {
+    text-indent: 20px;
   }
 }
