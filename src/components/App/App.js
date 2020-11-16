@@ -18,12 +18,24 @@ class App extends Component {
         users: [],
     }
 
+    componentDidMount() {
+        if (localStorage.hasOwnProperty("users")) {
+            let users = JSON.parse(localStorage.getItem("users"));
+            this.setState((prevState) => ({
+                users: [...prevState.users, ...users],
+            }))
+        }
+    }
+
     addUser = (user) => {
-        this.setState((prevState) => {
-            return {
+        this.setState(
+            (prevState) => ({
                 users: [...prevState.users, { ...user }],
-            };
-        });
+            }),
+            () => {
+                localStorage.setItem("users", JSON.stringify(this.state.users))
+            }
+        );
     };
 
     render() {

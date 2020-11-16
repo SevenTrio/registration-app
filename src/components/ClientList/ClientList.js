@@ -36,7 +36,7 @@ function ClientList({ users }) {
                                 <tr key={user.timeStamp.toString()} className="ClientList-TableRow">
                                     <td className="ClientList-TableData">{user.userName}</td>
                                     <td className="ClientList-TableData">{user.userGender}</td>
-                                    <td className="ClientList-TableData">{user.timeStamp.toLocaleString("en-US", dateOptions)}</td>
+                                    <td className="ClientList-TableData">{new Date(user.timeStamp).toLocaleString("en-US", dateOptions)}</td>
                                     <td className="ClientList-TableData">
                                         {user.withLoyaltyProgram
                                             ? <CheckIcon className="ClientList-CheckIcon"/>
