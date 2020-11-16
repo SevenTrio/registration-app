@@ -21,6 +21,10 @@ class Hamburger extends Component {
         }
     }
 
+    handleClose = () => {
+        this.setState({ open: false });
+    }
+
     render() {
         return (
             <Fragment>
@@ -35,7 +39,7 @@ class Hamburger extends Component {
                             <span />
                         </button>
 
-                        <Menu open={this.state.open} duration={300} />
+                        <Menu open={this.state.open} duration={300} handleClose={this.handleClose}/>
                     </div>
                 </ClickAwayListener>
 
