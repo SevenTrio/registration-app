@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 
 import Menu from '../Menu/Menu'
 import Blackout from "../Blackout/Blackout";
@@ -11,32 +12,37 @@ class Hamburger extends Component {
     }
 
     handleMenuButtonClick = () => {
-        this.setState((prevState) => ({open: !prevState.open}));
+        this.setState((prevState) => ({ open: !prevState.open }));
     };
 
-    handleClose = () => {
-        this.setState({open: false});
+    handleClickAway = () => {
+        if (this.state.open) {
+            this.setState({ open: false });
+        }
     }
 
     render() {
         return (
             <Fragment>
-                <div className="Hamburger">
-                    <button
-                        className={`Hamburger-Button ${this.state.open ? "Hamburger-Button_open" : ""}`}
-                        onClick={this.handleMenuButtonClick}
-                    >
-                        <span />
-                        <span />
-                        <span />
-                    </button>
-                </div>
+                <ClickAwayListener onClickAway={this.handleClickAway}>
+                    <div className="Hamburger">
+                        <button
+                            className={`Hamburger-Button ${this.state.open ? "Hamburger-Button_open" : ""}`}
+                            onClick={this.handleMenuButtonClick}
+                        >
+                            <span />
+                            <span />
+                            <span />
+                        </button>
 
-                <Menu open={this.state.open} handleClose={this.handleClose} duration={300} />
+                        <Menu open={this.state.open} duration={300} />
+                    </div>
+                </ClickAwayListener>
+
                 <Blackout open={this.state.open} duration={300} />
             </Fragment>
         );
     }
-};
+}
 
 export default Hamburger;
