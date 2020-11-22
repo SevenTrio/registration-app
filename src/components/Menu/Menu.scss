@@ -10,38 +10,4 @@
   max-width: 360px;
   padding-top: 120px;
   background-color: $black;
-
-  &-Navigation {
-
-  }
-
-  &-NavList {
-
-  }
-
-  &-NavItem {
-    &:not(:last-child) {
-      border-bottom: 1px solid #FFFFFF;
-    }
-  }
-
-  &-NavLink {
-    display: flex;
-    align-items: center;
-    min-height: 60px;
-    width: 100%;
-    padding: 0 32px;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 21px;
-    letter-spacing: 1px;
-    color: #fff;
-    text-decoration: none;
-    transition: all 0.3s ease-out;
-
-    &:hover {
-      color: #202020;
-      background-color: $pastel;
-    }
-  }
 }

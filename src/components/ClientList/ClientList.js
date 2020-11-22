@@ -1,8 +1,7 @@
 import React from "react";
 import CheckIcon from '@material-ui/icons/CheckRounded';
 import {NavLink} from "react-router-dom";
-
-import emptyImage from '../../images/empty.png'
+import emptyImage from './empty.png'
 import './ClientList.scss'
 
 const dateOptions = {
@@ -15,12 +14,13 @@ const dateOptions = {
     second: 'numeric'
 };
 
-function ClientList({ users }) {
+function ClientList({ userList }) {
+    console.log(userList);
     return (
         <div className="ClientList">
             <h1 className="ClientList-Heading">User list</h1>
 
-            {users && users.length ? (
+            {userList && userList.length ? (
                 <div className="ClientList-TableWrapper">
                     <table className="ClientList-Table">
                         <thead>
@@ -32,8 +32,8 @@ function ClientList({ users }) {
                             </tr>
                         </thead>
                         <tbody>
-                            {users.map(user =>
-                                <tr key={user.timeStamp.toString()} className="ClientList-TableRow">
+                            {userList.map(user =>
+                                <tr key={new Date(user.timeStamp).toString()} className="ClientList-TableRow">
                                     <td className="ClientList-TableData">{user.userName}</td>
                                     <td className="ClientList-TableData">{user.userGender}</td>
                                     <td className="ClientList-TableData">{new Date(user.timeStamp).toLocaleString("en-US", dateOptions)}</td>
